@@ -7,11 +7,15 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template("index.html", title="Home", h2="Home")
+    return render_template("index.html", h2="た〜びっと")
 
 @app.route("/member")
 def member():
     return render_template("member.html", title="メンバ〜", h2="メンバ〜")
+
+@app.route("/album")
+def album():
+    return render_template("album.html", title="旅行記録", h2="旅行記録")
 
 @app.route("/roulette")
 def roulette():

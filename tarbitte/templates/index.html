@@ -1,5 +1,98 @@
-{% extends "./frame/layout.html" %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="icon" href="../../static/images/logo.png"> -->
+  <!-- <link rel="apple-touch-icon" href="../../static/images/logo.png" sizes="180x180"> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/css/theme.default.min.css">
+  <link rel="stylesheet" href="../../static/css/tarbitte.css">
+  <title>た〜びっと</title>
+</head>
+<body>
+  <header class="sticky-top">
+    {% include "frame/header.html" %}
+  </header>
+  <main>
+    <div class="container-md pb-4">
+      <div id="carouselExampleIndicators" class="carousel slide pb-3" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="../static/images/home/home1.jpg" class="d-block w-100">
+          </div>
+          <div class="carousel-item">
+            <img src="../static/images/home/home2.jpg" class="d-block w-100">
+          </div>
+          <div class="carousel-item">
+            <img src="../static/images/home/home3.jpg" class="d-block w-100">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
 
-{% block contents %}
-<p>サイト作成中ですわ</p>
-{% endblock %}
+      <div class="main_title">
+        <h3 class="fs-2">た〜びっと <span class="fs-6">~日本全国ルーレットの旅~</span></h3>
+      </div>
+      
+      <div class="text-center">
+        <p>
+          【た〜びっと】<br>
+          それは、2023年度で10回以上の旅行を目的に立ち上がったプロジェクトのこと。<br>
+          しかも行き先はルーレットで完全ランダム。<br>
+          このサイトは特に使い道ないけど作ってみましたわ。<br>
+        </p>
+        <p>果たしてどこに行くんやろか…<br>ほんで何回行けますやろか…</p>
+      </div>
+
+      <div class="pt-5 text-center">
+        <h4>直近の予定</h4>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>5月上旬</td>
+              <td>第1回 開催予定</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pt-5 text-center">
+        <h4>おしらせ</h4>
+        <table class="table">
+          <tbody>
+            <tr><td>2023/4/9</td><td>サイト開設<span class="badge bg-danger ms-2">New</span></td></tr>
+            <tr><td>2023/4/9</td><td>プロジェクト名決定<span class="badge bg-danger ms-2">New</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+  <footer>
+    {% include "frame/footer.html" %}
+  </footer>
+  
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js"></script>
+  <!-- <script src="../../static/js/tarbitte.js"></script> -->
+  {% block script %}
+  {% endblock %}
+</body>
+</html>

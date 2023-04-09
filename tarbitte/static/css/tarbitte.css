@@ -21,10 +21,10 @@ main {
 
 footer{
     width: 100%;
-    background-color: #202020;
-    color: #fff;
+    /* background-color: rgba(0,0,0,0.1); */
+    color: #202020;
     font-family: serif;
-    text-align: center;
+    text-align: left;
     padding: 15px 0;
 }
 
@@ -42,12 +42,24 @@ h2 {
     border-bottom: 1px solid #202020;
 }
 
+.main_title {
+    margin-top: 20px;
+    font-family: serif;
+    text-align: center;
+    color:rgb(0, 14, 84);
+}
+
 .border_b {
     border-bottom: 2px solid #202020;
 }
 
-h3 {
+h4 {
+    font-family: serif;
     font-weight: bold;
+}
+
+table {
+    background-color: #fff;
 }
 
 td {
@@ -74,18 +86,6 @@ td {
 
 .map-random {
     height: 350px;
-}
-
-.map-editc {
-    height: 300px;
-}
-
-.map-viewp {
-    height: 75vh;
-}
-
-.map-memo {
-    height: 60vh;
 }
 
 .tablesorter-default td {
