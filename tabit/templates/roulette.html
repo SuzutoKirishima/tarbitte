@@ -1,0 +1,89 @@
+{% extends "./frame/layout.html" %}
+
+{% block contents %}
+
+<div class="text-center">
+  <button id="rand_btn" class="btn btn-primary start">スタ〜ト</button>
+</div>
+
+<div class="pt-3 dist">
+  今回の行き先は<br>
+  <b class="fs-2 pref"></b><br>
+  に決定！
+</div>
+<div class="text-end"><a class="info">情報をみる</a></div>
+
+
+<div class="map-random mt-3" id="map"></div>
+{% endblock %}
+
+{% block script %}
+<script>
+  let df = {{ df | tojson }};
+  let start = false;
+  let done = false;
+  let id;
+  let prefShow;
+
+  let map = L.map('map', {
+    center: [34.68639,135.52],
+    zoom: 6,
+  });
+
+  let tileLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© <a href="http://osm.org/copyright">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+  });
+  tileLayer.addTo(map);
+
+  let colors = ["#000000", "#00FF00", "#FF8800", "#FF0000"]
+  fetch("../static/json/prefectures.json")
+  .then(response => response.json())
+  .then(data => {
+    L.geoJSON(data, {
+      onEachFeature: function(feature, layer) {
+          let id = Number(feature.properties.pref);
+          let times = df[id-1][5];
+          layer.options.fillColor = colors[times];
+        }, 
+        style: {
+          "color": "#444444",
+          "weight": 1,
+          "fillOpacity": 0.4
+        }
+      }).addTo(map);
+    });
+
+  let rand = () => {
+    id = Math.floor(Math.random() * df.length);
+    let pref = df[id][1];
+    $(".pref").text(pref);
+  }
+
+  $("#rand_btn").on("click", function() {
+    if (done == false && start == false) {
+      // スタート処理
+      start = true;
+      $("#rand_btn").text("ストップ");
+      $("#rand_btn").removeClass("btn-primary");
+      $("#rand_btn").addClass("btn-danger");
+      prefShow = setInterval(rand, 50);
+    } else if (done == false && start == true) {
+      // ストップ処理
+      clearInterval(prefShow);
+      done = true;
+      $("#rand_btn").removeClass("btn-danger");
+      $("#rand_btn").addClass("btn-secondary");
+      $("#rand_btn").attr("disabled","");
+      let pref = df[id][1];
+      let city = df[id][2];
+      let loc = [df[id][3], df[id][4]];
+      
+      map.setView(loc);
+      L.marker(loc).addTo(map).bindPopup(`<a href='https://www.google.co.jp/maps/place/${pref}'>Googleマップ</a>`);
+
+      $(".info").attr("href", `./info/${Number(id)+1}`);
+      $(".info").text("情報をみる");
+    }
+  })
+</script>
+{% endblock %}

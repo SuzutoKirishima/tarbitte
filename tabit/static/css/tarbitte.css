@@ -1,0 +1,103 @@
+body {
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
+    /* padding-top: 7vh; */
+    background-color: rgb(237, 249, 252);
+}
+
+/* header {
+    border-bottom: 5px solid rgb(33, 37, 41);
+} */
+
+nav {
+    font-family: serif;
+    border-bottom: 5px solid rgb(0, 174, 255);
+}
+
+main {
+    flex: 1;
+}
+
+footer{
+    width: 100%;
+    background-color: #202020;
+    color: #fff;
+    font-family: serif;
+    text-align: center;
+    padding: 15px 0;
+}
+
+footer p {
+    margin-bottom: 0px;
+    font-size: small;
+}
+
+h2 {
+    padding-top: 5px;
+    padding-bottom: 2px;
+    font-family: serif;
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 1px solid #202020;
+}
+
+.border_b {
+    border-bottom: 2px solid #202020;
+}
+
+h3 {
+    font-weight: bold;
+}
+
+td {
+    vertical-align: middle;
+}
+
+.td_image {
+    width: 10vw;
+}
+
+.member {
+    margin-bottom: 0px; 
+}
+
+.fs-sm {
+    font-size: 0.8em;
+}
+
+/* .btn-primary {
+    color: #202020;
+    background-color: rgb(255, 204, 0);
+    border-color: rgb(187, 150, 4);
+} */
+
+.map-random {
+    height: 350px;
+}
+
+.map-editc {
+    height: 300px;
+}
+
+.map-viewp {
+    height: 75vh;
+}
+
+.map-memo {
+    height: 60vh;
+}
+
+.tablesorter-default td {
+    background-color: rgb(252, 250, 237);
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 0.8em;
+    }
+
+    .td_image {
+        width: 20vw;
+    }
+}
